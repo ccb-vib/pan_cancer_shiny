@@ -26,9 +26,13 @@ library("shinydashboard")
 
 ############################ load datasets ##################################
 
-  ## load datasets
-  rds1 = readRDS(file = paste0("../test_data/pancancer_1000a.rds"))
-  rds2 = readRDS(file = paste0("../test_data/pancancer_1000b.rds"))
+  ## load toy datasets
+  # rds1 = readRDS(file = paste0("../test_data/pancancer_1000a.rds"))
+  # rds2 = readRDS(file = paste0("../test_data/pancancer_1000b.rds"))
+  
+  ## load 2 smallest datasets
+  rds1 = readRDS(file = paste0("../test_data/real_datasets/CRC_fixed.rds"))
+  rds2 = readRDS(file = paste0("../test_data/real_datasets/HNSCC_fixed.rds"))
   
   ## TODO:
   ## find a way to dynamically load datasets
@@ -45,8 +49,8 @@ ui <- dashboardPage(
           ## choose cancer cell type
           selectInput(inputId = "cancer_type",
                       label =  "Cancer Type:",
-                      choices = c("Dataset A" = "rds1",
-                                  "Dataset B" = "rds2")),
+                      choices = c("Toy Dataset A" = "rds1",
+                                  "Toy Dataset B" = "rds2")),
           # selectInput(inputId = "cancer_type",
           #             label =  "Cancer Type:",
           #             choices = c("BC" = "BC_df",
